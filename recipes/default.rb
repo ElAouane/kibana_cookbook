@@ -46,3 +46,8 @@ end
 execute 'fix_template' do
   command 'sudo chmod go-w /etc/kibana/kibana.yml'
 end
+
+service 'kibana' do
+  supports status: true, restart: true, reload: true
+  action [:enable, :start]
+end
